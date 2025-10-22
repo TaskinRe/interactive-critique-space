@@ -1,66 +1,89 @@
-import { Brain, Rocket, Palette, Users } from "lucide-react";
+import { Brain, Accessibility, Globe2, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
   const highlights = [
     {
       icon: Brain,
-      title: "Research Excellence",
-      description: "Working on EEG brain imaging, fMRI studies, and muon tomography at NYU Abu Dhabi",
-      color: "text-primary"
+      title: "Cognitive Neuroscience",
+      description: "EEG brain imaging, fMRI studies, and neural data analysis at NYU's SONA Lab",
     },
     {
-      icon: Rocket,
-      title: "Innovation Leader",
-      description: "Runner-up at AntlerxLovable Hackathon, Semifinalist in Google AI for Good",
-      color: "text-accent"
+      icon: Accessibility,
+      title: "Assistive Technology",
+      description: "Designing inclusive solutions for diverse abilities through HCI research",
     },
     {
-      icon: Palette,
-      title: "Creative Storyteller",
-      description: "Experience in filmmaking, game design, and interactive media production",
-      color: "text-secondary"
+      icon: Globe2,
+      title: "Bengali Heritage",
+      description: "Integrating cultural storytelling with modern design principles",
     },
     {
-      icon: Users,
-      title: "Community Builder",
-      description: "Led weSTEM conferences for 80+ schools, mentored students across continents",
-      color: "text-primary"
+      icon: Sparkles,
+      title: "Creative Innovation",
+      description: "Game design, filmmaking, and interactive media production",
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section 
+      id="about" 
+      ref={ref}
+      className="py-20 bg-background"
+      aria-labelledby="about-heading"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
-          <div className="text-center space-y-4 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold">About Me</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center space-y-4"
+          >
+            <h2 id="about-heading" className="text-4xl md:text-5xl font-bold text-foreground">
+              About Me
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              I'm a multidisciplinary engineer who thrives at the intersection of cutting-edge 
-              research, innovative technology, and creative expression.
+              A multidisciplinary design engineer bridging cultures, research, and human-centered technology
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {highlights.map((item, index) => (
-              <Card 
+              <motion.div
                 key={index}
-                className="group hover:border-primary/50 transition-all duration-300 hover:shadow-glow bg-card/50 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
               >
-                <CardContent className="p-6 space-y-4">
-                  <div className={`${item.color} transition-transform group-hover:scale-110 inline-block`}>
-                    <item.icon className="w-10 h-10" />
-                  </div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                </CardContent>
-              </Card>
+                <Card 
+                  className="group hover:border-primary/50 transition-all duration-300 hover:shadow-medium bg-card border-border h-full"
+                >
+                  <CardContent className="p-6 space-y-4">
+                    <div className="text-primary transition-transform group-hover:scale-110 inline-block">
+                      <item.icon className="w-10 h-10" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
 
-          <div className="bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6">
-            <h3 className="text-2xl font-semibold">Current Focus</h3>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6 shadow-soft"
+          >
+            <h3 className="text-2xl font-semibold text-foreground">Current Focus</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 As a General Engineering major with a minor in Interactive Media at NYU Abu Dhabi, 
@@ -72,12 +95,12 @@ const About = () => {
                 leading STEM outreach programs across the UAE.
               </p>
               <p>
-                I believe technology should be both powerful and human-centered, and I'm passionate 
-                about creating solutions that bridge the gap between complex engineering and 
-                meaningful user experiences.
+                Rooted in my Bengali heritage and driven by a commitment to accessibility, I create 
+                technology solutions that are both innovative and deeply human-centered—bridging 
+                cultural storytelling with cutting-edge engineering.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

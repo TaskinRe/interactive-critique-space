@@ -8,47 +8,92 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Light mode - Minimalistic palette inspired by medical/space research */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 20%;
 
-    --card: 222 47% 14%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 20%;
 
-    --popover: 222 47% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 20%;
 
-    --primary: 191 97% 58%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 205 85% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 48% 48%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 195 35% 85%;
+    --secondary-foreground: 215 25% 20%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 280 84% 65%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 25 75% 65%;
+    --accent-foreground: 215 25% 20%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 22%;
-    --input: 217 33% 22%;
-    --ring: 191 97% 58%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 205 85% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(191 97% 58%) 0%, hsl(240 48% 48%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(240 48% 48%) 0%, hsl(280 84% 65%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(222 47% 8%) 100%);
+    /* Bengali-inspired accent color */
+    --bengali-red: 350 85% 55%;
+    --bengali-gold: 45 85% 60%;
     
-    /* Custom shadows */
-    --shadow-glow: 0 0 40px hsl(191 97% 58% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    /* Custom gradients - soft, low-contrast */
+    --gradient-primary: linear-gradient(135deg, hsl(205 85% 55%) 0%, hsl(195 75% 65%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(205 25% 95%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(205 85% 55%) 0%, hsl(25 75% 65%) 100%);
+    
+    /* Custom shadows - subtle */
+    --shadow-soft: 0 2px 8px hsl(215 25% 20% / 0.06);
+    --shadow-medium: 0 4px 16px hsl(215 25% 20% / 0.08);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark mode - maintaining minimalism with cool tones */
+    --background: 215 25% 12%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 25% 15%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 25% 15%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 205 85% 60%;
+    --primary-foreground: 215 25% 12%;
+
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 25 75% 60%;
+    --accent-foreground: 215 25% 12%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 205 85% 60%;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(205 85% 60%) 0%, hsl(195 75% 65%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(215 25% 12%) 0%, hsl(215 25% 15%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(205 85% 60%) 0%, hsl(25 75% 60%) 100%);
+    
+    /* Custom shadows */
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.2);
+    --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.3);
   }
 }
 
