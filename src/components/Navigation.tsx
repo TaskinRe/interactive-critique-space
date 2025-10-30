@@ -42,7 +42,7 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { label: "About", id: "about" },
+    { label: "About", id: "about", isRoute: true },
     { label: "Projects", id: "projects" },
     { label: "Experience", id: "experience" },
     { label: "Skills", id: "skills" },
