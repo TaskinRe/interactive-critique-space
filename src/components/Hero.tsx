@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import FloatingOrbs from "./FloatingOrbs";
-import BengaliPattern from "./BengaliPattern";
+import HandwrittenName from "./HandwrittenName";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -21,7 +21,6 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-soft"
       role="banner"
     >
-      <BengaliPattern />
       <FloatingOrbs />
       
       <div className="container mx-auto px-4 z-10">
@@ -30,11 +29,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
+            className="space-y-6"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-              Rehnuma Taskin
-            </h1>
+            <HandwrittenName />
             <p className="text-xl md:text-2xl text-muted-foreground">
               Design Engineer • HCI Researcher • Creative Storyteller
             </p>
@@ -66,8 +63,8 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Bridging Bengali heritage with cutting-edge technology, I design accessible
-            solutions at the intersection of neuroscience, space research, and human-centered innovation.
+            Designing accessible solutions at the intersection of neuroscience, space research, 
+            and human-centered innovation with a focus on assistive technology.
           </motion.p>
 
           <motion.div
