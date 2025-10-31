@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import FloatingOrbs from "./FloatingOrbs";
 import HandwrittenName from "./HandwrittenName";
+import P5ScribbleBackground from "./P5ScribbleBackground";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -22,7 +23,7 @@ const Hero = () => {
       role="banner"
     >
       <FloatingOrbs />
-      
+      <P5ScribbleBackground />
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <motion.div

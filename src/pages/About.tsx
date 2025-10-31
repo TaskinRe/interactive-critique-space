@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Home, Heart, BookOpen, Code, Cat } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -9,6 +9,7 @@ import booksSketch from "@/assets/books-sketch.png";
 import { useRef } from "react";
 
 const About = () => {
+  const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -50,17 +51,13 @@ const About = () => {
       
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-4 mb-8">
-          <Button asChild variant="outline" size="sm">
-            <Link to="/">
-              <ArrowLeft className="w-4 h-4" />
-              Back
-            </Link>
+          <Button variant="outline" size="sm" onClick={() => navigate(-1)} aria-label="Go back">
+            <ArrowLeft className="w-4 h-4" />
+            Back
           </Button>
-          <Button asChild variant="outline" size="sm">
-            <Link to="/">
-              <Home className="w-4 h-4" />
-              Home
-            </Link>
+          <Button variant="outline" size="sm" onClick={() => navigate("/")} aria-label="Go home">
+            <Home className="w-4 h-4" />
+            Home
           </Button>
         </div>
 

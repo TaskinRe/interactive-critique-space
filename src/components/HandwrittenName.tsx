@@ -16,19 +16,26 @@ const HandwrittenName = () => {
     const updateCanvasSize = () => {
       const dpr = window.devicePixelRatio || 1;
       const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
+      // Ensure CSS size is set
       canvas.style.width = rect.width + "px";
       canvas.style.height = rect.height + "px";
+      // Set actual pixel size
+      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+      // Reset transform before applying scale to avoid compounding
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      // Clear to avoid artifacts on resize
+      ctx.clearRect(0, 0, rect.width, rect.height);
     };
 
     updateCanvasSize();
     window.addEventListener("resize", updateCanvasSize);
 
-    // Drawing configuration
-    ctx.strokeStyle = "hsl(200, 45%, 60%)";
-    ctx.lineWidth = 3;
+    // Drawing configuration (use theme primary color)
+    const rootStyles = getComputedStyle(document.documentElement);
+    const primaryHsl = rootStyles.getPropertyValue("--primary").trim() || "200 45% 60%";
+    ctx.strokeStyle = `hsl(${primaryHsl})`;
+    ctx.lineWidth = 2.5;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
 
