@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home as HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
@@ -60,13 +60,16 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <button
-            onClick={() => scrollToSection("hero")}
-            className="text-xl font-semibold text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
-            aria-label="Go to top"
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => (location.pathname !== "/" ? navigate("/") : scrollToSection("hero"))}
+            className="hover-scale shadow-soft"
+            aria-label="Home"
           >
-            RT
-          </button>
+            <HomeIcon className="h-4 w-4" />
+            <span className="font-semibold ml-1">RT</span>
+          </Button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">

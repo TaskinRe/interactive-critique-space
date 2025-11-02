@@ -7,6 +7,7 @@ import profileSketch from "@/assets/profile-sketch.png";
 import catsSketch from "@/assets/cats-sketch.png";
 import booksSketch from "@/assets/books-sketch.png";
 import { useRef } from "react";
+import P5CenteredName from "@/components/P5CenteredName";
 
 const About = () => {
   const navigate = useNavigate();
@@ -45,21 +46,33 @@ const About = () => {
     }
   ];
 
+  const handleBack = () => {
+    if (window.history.length > 1) navigate(-1);
+    else navigate("/");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex gap-4 mb-8">
-          <Button variant="outline" size="sm" onClick={() => navigate(-1)} aria-label="Go back">
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => navigate("/")} aria-label="Go home">
-            <Home className="w-4 h-4" />
-            Home
-          </Button>
-        </div>
+        <div className="container mx-auto px-4 py-8">
+          {/* Centered interactive name sketch */}
+          <section className="relative h-40 md:h-56 mb-6">
+            <P5CenteredName />
+          </section>
+
+          <div className="flex gap-3 mb-8 justify-end">
+            <Button variant="outline" size="sm" onClick={handleBack} aria-label="Go back" className="hover-scale">
+              <ArrowLeft className="w-4 h-4" />
+              Back
+            </Button>
+            <Button asChild size="sm" className="hover-scale shadow-soft hover:shadow-medium">
+              <Link to="/" aria-label="Go home">
+                <Home className="w-4 h-4" />
+                Home
+              </Link>
+            </Button>
+          </div>
 
         <div ref={containerRef} className="max-w-6xl mx-auto space-y-20">
           {/* Hero Section with Parallax */}
