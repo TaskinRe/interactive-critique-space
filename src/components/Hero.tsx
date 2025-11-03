@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import FloatingOrbs from "./FloatingOrbs";
-import HandwrittenName from "./HandwrittenName";
+import P5CenteredName from "./P5CenteredName";
 import P5ScribbleBackground from "./P5ScribbleBackground";
 
 const Hero = () => {
@@ -30,10 +30,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-6 relative"
           >
-            <HandwrittenName />
-            <motion.p 
+            <div className="relative h-32">
+              <P5CenteredName text="Rehnuma Taskin" />
+            </div>
+            <motion.p
               className="text-xl md:text-2xl text-muted-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

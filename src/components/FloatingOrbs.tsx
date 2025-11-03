@@ -6,7 +6,7 @@ const FloatingOrbs = () => {
   const orbs = [
     {
       size: "w-96 h-96",
-      color: "bg-[hsl(200_75%_70%)]",
+      color: "bg-[hsl(180_65%_58%)]",
       initialX: "10%",
       initialY: "20%",
       parallaxSpeed: 0.5,
@@ -15,7 +15,7 @@ const FloatingOrbs = () => {
     },
     {
       size: "w-[32rem] h-[32rem]",
-      color: "bg-[hsl(270_60%_75%)]",
+      color: "bg-[hsl(280_55%_65%)]",
       initialX: "70%",
       initialY: "10%",
       parallaxSpeed: 0.3,
@@ -24,7 +24,7 @@ const FloatingOrbs = () => {
     },
     {
       size: "w-[28rem] h-[28rem]",
-      color: "bg-[hsl(150_55%_68%)]",
+      color: "bg-[hsl(160_50%_62%)]",
       initialX: "50%",
       initialY: "60%",
       parallaxSpeed: 0.7,
@@ -33,7 +33,7 @@ const FloatingOrbs = () => {
     },
     {
       size: "w-80 h-80",
-      color: "bg-[hsl(15_80%_75%)]",
+      color: "bg-[hsl(10_75%_68%)]",
       initialX: "15%",
       initialY: "70%",
       parallaxSpeed: 0.4,
@@ -42,7 +42,7 @@ const FloatingOrbs = () => {
     },
     {
       size: "w-72 h-72",
-      color: "bg-[hsl(45_85%_75%)]",
+      color: "bg-[hsl(48_80%_70%)]",
       initialX: "85%",
       initialY: "75%",
       parallaxSpeed: 0.6,
@@ -51,7 +51,7 @@ const FloatingOrbs = () => {
     },
     {
       size: "w-96 h-96",
-      color: "bg-[hsl(140_45%_65%)]",
+      color: "bg-[hsl(145_50%_55%)]",
       initialX: "40%",
       initialY: "30%",
       parallaxSpeed: 0.8,

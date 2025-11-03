@@ -8,49 +8,49 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light mode - Vibrant saturated pastels */
-    --background: 220 55% 88%;
-    --foreground: 240 30% 20%;
+    /* Light mode - Warm earthy pastels */
+    --background: 35 45% 85%;
+    --foreground: 25 35% 25%;
 
-    --card: 200 50% 92%;
-    --card-foreground: 240 30% 20%;
+    --card: 30 40% 90%;
+    --card-foreground: 25 35% 25%;
 
-    --popover: 200 50% 92%;
-    --popover-foreground: 240 30% 20%;
+    --popover: 30 40% 90%;
+    --popover-foreground: 25 35% 25%;
 
-    --primary: 280 65% 65%;
+    --primary: 165 55% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 160 60% 65%;
-    --secondary-foreground: 240 30% 20%;
+    --secondary: 285 50% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 35% 82%;
-    --muted-foreground: 240 15% 40%;
+    --muted: 35 30% 78%;
+    --muted-foreground: 25 20% 45%;
 
-    --accent: 340 75% 70%;
-    --accent-foreground: 240 30% 20%;
+    --accent: 45 70% 65%;
+    --accent-foreground: 25 35% 25%;
 
-    --destructive: 0 70% 60%;
+    --destructive: 0 65% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 30% 80%;
-    --input: 220 30% 80%;
-    --ring: 280 65% 65%;
+    --border: 35 25% 75%;
+    --input: 35 25% 75%;
+    --ring: 165 55% 55%;
 
     --radius: 0.5rem;
     
-    /* Vibrant animation colors */
-    --calm-blue: 200 75% 70%;
-    --soft-lavender: 270 60% 75%;
-    --mint-green: 150 55% 68%;
-    --peachy-coral: 15 80% 75%;
-    --warm-yellow: 45 85% 75%;
-    --sage-green: 140 45% 65%;
+    /* Warm animation colors */
+    --teal-blue: 180 65% 58%;
+    --soft-purple: 280 55% 65%;
+    --sage-mint: 160 50% 62%;
+    --coral-pink: 10 75% 68%;
+    --golden-yellow: 48 80% 70%;
+    --forest-green: 145 50% 55%;
     
     /* Custom shadows */
-    --shadow-soft: 0 2px 12px hsl(240 30% 20% / 0.1);
-    --shadow-medium: 0 4px 20px hsl(240 30% 20% / 0.15);
-    --shadow-glow: 0 0 30px hsl(280 65% 65% / 0.3);
+    --shadow-soft: 0 2px 12px hsl(25 35% 25% / 0.1);
+    --shadow-medium: 0 4px 20px hsl(25 35% 25% / 0.15);
+    --shadow-glow: 0 0 30px hsl(165 55% 55% / 0.3);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
