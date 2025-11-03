@@ -19,7 +19,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-soft"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background"
       role="banner"
     >
       <FloatingOrbs />

@@ -8,55 +8,49 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light mode - Mental wellbeing pastels */
-    --background: 210 40% 93%;
-    --foreground: 240 20% 25%;
+    /* Light mode - Vibrant saturated pastels */
+    --background: 220 55% 88%;
+    --foreground: 240 30% 20%;
 
-    --card: 200 45% 96%;
-    --card-foreground: 240 20% 25%;
+    --card: 200 50% 92%;
+    --card-foreground: 240 30% 20%;
 
-    --popover: 200 45% 96%;
-    --popover-foreground: 240 20% 25%;
+    --popover: 200 50% 92%;
+    --popover-foreground: 240 30% 20%;
 
-    --primary: 280 60% 68%;
+    --primary: 280 65% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 160 50% 70%;
-    --secondary-foreground: 240 20% 25%;
+    --secondary: 160 60% 65%;
+    --secondary-foreground: 240 30% 20%;
 
-    --muted: 220 25% 88%;
-    --muted-foreground: 240 12% 42%;
+    --muted: 220 35% 82%;
+    --muted-foreground: 240 15% 40%;
 
-    --accent: 340 70% 75%;
-    --accent-foreground: 240 20% 25%;
+    --accent: 340 75% 70%;
+    --accent-foreground: 240 30% 20%;
 
-    --destructive: 0 60% 65%;
+    --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 85%;
-    --input: 220 20% 85%;
-    --ring: 280 60% 68%;
+    --border: 220 30% 80%;
+    --input: 220 30% 80%;
+    --ring: 280 65% 65%;
 
     --radius: 0.5rem;
     
-    /* Mental wellbeing colors */
-    --calm-blue: 200 70% 75%;
-    --soft-lavender: 270 50% 78%;
-    --mint-green: 150 45% 72%;
-    --peachy-coral: 15 75% 78%;
-    --warm-yellow: 45 80% 78%;
-    --sage-green: 140 35% 70%;
+    /* Vibrant animation colors */
+    --calm-blue: 200 75% 70%;
+    --soft-lavender: 270 60% 75%;
+    --mint-green: 150 55% 68%;
+    --peachy-coral: 15 80% 75%;
+    --warm-yellow: 45 85% 75%;
+    --sage-green: 140 45% 65%;
     
-    /* Custom gradients - soothing */
-    --gradient-primary: linear-gradient(135deg, hsl(280 60% 78%) 0%, hsl(200 70% 80%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(210 40% 93%) 0%, hsl(200 45% 96%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(340 70% 80%) 0%, hsl(45 80% 82%) 100%);
-    --gradient-calm: linear-gradient(120deg, hsl(150 45% 78%) 0%, hsl(200 70% 80%) 50%, hsl(270 50% 82%) 100%);
-    
-    /* Custom shadows - soft depth */
-    --shadow-soft: 0 2px 12px hsl(240 20% 25% / 0.08);
-    --shadow-medium: 0 4px 20px hsl(240 20% 25% / 0.12);
-    --shadow-glow: 0 0 30px hsl(280 60% 68% / 0.25);
+    /* Custom shadows */
+    --shadow-soft: 0 2px 12px hsl(240 30% 20% / 0.1);
+    --shadow-medium: 0 4px 20px hsl(240 30% 20% / 0.15);
+    --shadow-glow: 0 0 30px hsl(280 65% 65% / 0.3);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -91,11 +85,6 @@ All colors MUST be HSL.
     --border: 240 12% 28%;
     --input: 240 12% 28%;
     --ring: 200 45% 65%;
-
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(200 45% 35%) 0%, hsl(150 35% 35%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(240 15% 18%) 0%, hsl(240 15% 22%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(320 35% 35%) 0%, hsl(200 35% 35%) 100%);
     
     /* Custom shadows */
     --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.2);
