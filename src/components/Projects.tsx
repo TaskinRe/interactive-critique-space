@@ -1,12 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Microscope, Cpu, ArrowRight } from "lucide-react";
 import eegSketch from "@/assets/eeg-sketch.png";
 import muonSketch from "@/assets/muon-sketch.png";
 import fmriSketch from "@/assets/fmri-sketch.png";
+import { useRef } from "react";
 
 const Projects = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [150, -150]);
   const projects = [
     {
       id: "eeg-brain-imaging",
@@ -38,7 +46,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-background">
+    <section id="projects" className="py-20 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto space-y-16">
           <motion.div 
@@ -46,6 +54,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            style={{ y }}
           >
             <h2 className="text-5xl md:text-6xl font-bold">Featured Projects</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

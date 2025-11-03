@@ -33,9 +33,14 @@ const Hero = () => {
             className="space-y-6"
           >
             <HandwrittenName />
-            <p className="text-xl md:text-2xl text-muted-foreground">
+            <motion.p 
+              className="text-xl md:text-2xl text-muted-foreground"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
               Design Engineer • HCI Researcher • Creative Storyteller
-            </p>
+            </motion.p>
           </motion.div>
 
           <motion.div
