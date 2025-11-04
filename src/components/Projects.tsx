@@ -2,10 +2,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Microscope, Cpu, ArrowRight, Heart } from "lucide-react";
-import eegSketch from "@/assets/eeg-sketch.png";
-import muonSketch from "@/assets/muon-sketch.png";
-import fmriSketch from "@/assets/fmri-sketch.png";
-import catsSketch from "@/assets/cats-sketch.png";
+import eegAbstract from "@/assets/eeg-abstract.png";
+import muonAbstract from "@/assets/muon-abstract.png";
+import fmriAbstract from "@/assets/fmri-abstract.png";
+import andoorAbstract from "@/assets/andoor-abstract.png";
 import { useRef } from "react";
 
 const Projects = () => {
@@ -22,7 +22,7 @@ const Projects = () => {
       title: "Andoor - Haptic Companion for Calm",
       description: "A therapeutic haptic feedback system mimicking cat purring vibrations to help neurodivergent children with sensory regulation",
       icon: Heart,
-      image: catsSketch,
+      image: andoorAbstract,
       tags: ["UX Design", "Haptic Tech", "ASD Research"],
       period: "2024"
     },
@@ -31,7 +31,7 @@ const Projects = () => {
       title: "EEG Brain Imaging Research",
       description: "Investigating linguistic content and social information using event-related potentials in the SONA Lab",
       icon: Brain,
-      image: eegSketch,
+      image: eegAbstract,
       tags: ["Neuroscience", "EEG", "Data Analysis"],
       period: "Oct 2024 - Present"
     },
@@ -40,7 +40,7 @@ const Projects = () => {
       title: "Muon Tomography Simulation",
       description: "Geant4 simulation of cosmic ray detectors using C++ on Linux with modified geometric arrangements",
       icon: Microscope,
-      image: muonSketch,
+      image: muonAbstract,
       tags: ["C++", "Geant4", "Physics"],
       period: "Summer 2024"
     },
@@ -49,7 +49,7 @@ const Projects = () => {
       title: "fMRI Motion Perception Study",
       description: "Analyzed neural responses in MT (V5) and V1 cortices using MATLAB, Psychtoolbox, and GLM modeling",
       icon: Cpu,
-      image: fmriSketch,
+      image: fmriAbstract,
       tags: ["MATLAB", "fMRI", "Computer Vision"],
       period: "Spring 2024"
     }

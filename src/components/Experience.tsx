@@ -60,7 +60,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gradient-hero">
+    <section id="experience" className="py-20 bg-gradient-to-br from-background via-secondary/10 to-accent/10">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="text-center space-y-4">
