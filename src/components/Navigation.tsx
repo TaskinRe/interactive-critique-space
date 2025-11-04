@@ -43,6 +43,7 @@ const Navigation = () => {
 
   const navItems = [
     { label: "About", id: "about", isRoute: true },
+    { label: "Andoor Case Study", id: "case-study/andoor", isRoute: true },
     { label: "Projects", id: "projects" },
     { label: "Experience", id: "experience" },
     { label: "Skills", id: "skills" },

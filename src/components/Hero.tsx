@@ -98,6 +98,38 @@ const Hero = () => {
             </Button>
           </motion.div>
 
+          {/* Featured Case Study Banner */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="mt-12"
+          >
+            <a 
+              href="/case-study/andoor" 
+              className="block max-w-2xl mx-auto bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 border-2 border-primary/30 rounded-2xl p-6 hover:border-primary/50 transition-all shadow-medium hover:shadow-glow group"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-bold rounded-full">
+                  FEATURED CASE STUDY
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                Andoor: A Haptic Companion for Calm
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                Designing a therapeutic haptic feedback system for children with ASD—combining research, 
+                compassion, and innovation to create accessible sensory support tools.
+              </p>
+              <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+                <span>Read the full case study</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </a>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
