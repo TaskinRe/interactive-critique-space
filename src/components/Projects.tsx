@@ -1,10 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Microscope, Cpu, ArrowRight } from "lucide-react";
+import { Brain, Microscope, Cpu, ArrowRight, Heart } from "lucide-react";
 import eegSketch from "@/assets/eeg-sketch.png";
 import muonSketch from "@/assets/muon-sketch.png";
 import fmriSketch from "@/assets/fmri-sketch.png";
+import catsSketch from "@/assets/cats-sketch.png";
 import { useRef } from "react";
 
 const Projects = () => {
@@ -16,6 +17,15 @@ const Projects = () => {
   
   const y = useTransform(scrollYProgress, [0, 1], [150, -150]);
   const projects = [
+    {
+      id: "andoor",
+      title: "Andoor - Haptic Companion for Calm",
+      description: "A therapeutic haptic feedback system mimicking cat purring vibrations to help neurodivergent children with sensory regulation",
+      icon: Heart,
+      image: catsSketch,
+      tags: ["UX Design", "Haptic Tech", "ASD Research"],
+      period: "2024"
+    },
     {
       id: "eeg-brain-imaging",
       title: "EEG Brain Imaging Research",
@@ -72,7 +82,7 @@ const Projects = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <Link 
-                  to={`/projects/${project.id}`}
+                  to={project.id === "andoor" ? "/case-study/andoor" : `/projects/${project.id}`}
                   className="group block"
                 >
                   <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>

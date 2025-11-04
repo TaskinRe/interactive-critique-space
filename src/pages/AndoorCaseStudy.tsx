@@ -71,16 +71,16 @@ const AndoorCaseStudy = () => {
             
             <div className="prose prose-lg max-w-none text-foreground/90 space-y-6">
               <p className="text-xl leading-relaxed">
-                I still remember the day vividly. A 10-year-old boy, overwhelmed by sensory overload, 
-                was crying uncontrollably in the corner of the room. His world had become too loud, too 
-                bright, too much. Nothing seemed to help—until someone simply held him close.
+                When I was in grade 6, I witnessed something that stayed with me. My friend's younger brother 
+                was having a difficult moment—running around, getting increasingly agitated. Everyone was 
+                trying to help, offering toys, words of comfort, different approaches. Nothing seemed to work.
               </p>
               
               <p className="text-xl leading-relaxed">
-                Within minutes, the transformation was remarkable. The steady pressure, the warmth of 
-                human contact, the rhythmic comfort of being held—it brought him back. He stopped crying. 
-                His breathing slowed. And then, slowly, he started to talk again. That moment crystallized 
-                a profound truth: sometimes, the most powerful intervention isn't clinical—it's comfort.
+                Then his mom simply walked over and hugged him. Within a few moments, he began to calm down. 
+                The steady pressure, the warmth—it worked. That simple observation sparked a question that 
+                would shape this project: what if we could create something that provides that same calming 
+                presence whenever it's needed?
               </p>
 
               <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-r-lg my-8">
