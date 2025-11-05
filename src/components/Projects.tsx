@@ -16,44 +16,52 @@ const Projects = () => {
   });
   
   const y = useTransform(scrollYProgress, [0, 1], [150, -150]);
-  const projects = [
-    {
-      id: "andoor",
-      title: "Andoor - Haptic Companion for Calm",
-      description: "A therapeutic haptic feedback system mimicking cat purring vibrations to help neurodivergent children with sensory regulation",
-      icon: Heart,
-      image: andoorAbstract,
-      tags: ["UX Design", "Haptic Tech", "ASD Research"],
-      period: "2024"
-    },
-    {
-      id: "eeg-brain-imaging",
-      title: "EEG Brain Imaging Research",
-      description: "Investigating linguistic content and social information using event-related potentials in the SONA Lab",
-      icon: Brain,
-      image: eegAbstract,
-      tags: ["Neuroscience", "EEG", "Data Analysis"],
-      period: "Oct 2024 - Present"
-    },
-    {
-      id: "muon-tomography",
-      title: "Muon Tomography Simulation",
-      description: "Geant4 simulation of cosmic ray detectors using C++ on Linux with modified geometric arrangements",
-      icon: Microscope,
-      image: muonAbstract,
-      tags: ["C++", "Geant4", "Physics"],
-      period: "Summer 2024"
-    },
-    {
-      id: "fmri-motion",
-      title: "fMRI Motion Perception Study",
-      description: "Analyzed neural responses in MT (V5) and V1 cortices using MATLAB, Psychtoolbox, and GLM modeling",
-      icon: Cpu,
-      image: fmriAbstract,
-      tags: ["MATLAB", "fMRI", "Computer Vision"],
-      period: "Spring 2024"
-    }
-  ];
+  const projectCategories = {
+    product: [
+      {
+        id: "andoor",
+        title: "Andoor - Haptic Companion for Calm",
+        description: "Built a therapeutic haptic device that mimics cat purring vibrations. Tested with neurodivergent children to support sensory regulation during overwhelming moments.",
+        icon: Heart,
+        image: andoorAbstract,
+        tags: ["Product Design", "Haptic Feedback", "ASD"],
+        period: "2024"
+      }
+    ],
+    research: [
+      {
+        id: "eeg-brain-imaging",
+        title: "EEG Brain Imaging",
+        description: "Working with event-related potentials to understand how the brain processes linguistic content and social cues in the SONA Lab.",
+        icon: Brain,
+        image: eegAbstract,
+        tags: ["Neuroscience", "EEG", "Data Analysis"],
+        period: "Oct 2024 - Present"
+      },
+      {
+        id: "fmri-motion",
+        title: "fMRI Motion Perception",
+        description: "Studied how V1 and MT cortices respond to motion stimuli using fMRI. Built the experimental paradigm in MATLAB with Psychtoolbox and analyzed results through GLM modeling.",
+        icon: Cpu,
+        image: fmriAbstract,
+        tags: ["MATLAB", "fMRI", "Vision Science"],
+        period: "Spring 2024"
+      }
+    ],
+    engineering: [
+      {
+        id: "muon-tomography",
+        title: "Muon Tomography Simulation",
+        description: "Simulated cosmic ray muon detectors in Geant4 with C++ on Linux. Modified detector geometries to optimize detection efficiency.",
+        icon: Microscope,
+        image: muonAbstract,
+        tags: ["C++", "Geant4", "Physics"],
+        period: "Summer 2024"
+      }
+    ]
+  };
+
+  const allProjects = [...projectCategories.product, ...projectCategories.research, ...projectCategories.engineering];
 
   return (
     <section id="projects" className="py-20 bg-background" ref={ref}>
@@ -66,85 +74,241 @@ const Projects = () => {
             viewport={{ once: true }}
             style={{ y }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold">Featured Projects</h2>
+            <h2 className="text-5xl md:text-6xl font-bold">Projects</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Case studies in neuroscience research, physics simulation, and computational modeling
+              Product design, engineering solutions, and research work
             </p>
           </motion.div>
 
-          <div className="space-y-20">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Link 
-                  to={project.id === "andoor" ? "/case-study/andoor" : `/projects/${project.id}`}
-                  className="group block"
+          {/* Product */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-primary">Product</h3>
+            <div className="space-y-20">
+              {projectCategories.product.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
                 >
-                  <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
-                    {/* Image */}
-                    <motion.div 
-                      className={`relative ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                      <motion.div
-                        className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                  <Link 
+                    to={project.id === "andoor" ? "/case-study/andoor" : `/projects/${project.id}`}
+                    className="group block"
+                  >
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                      <motion.div 
+                        className="relative"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
                       >
-                        <ArrowRight className="w-6 h-6 text-primary" />
+                        <div className="relative overflow-hidden rounded-2xl shadow-elegant">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+                        <motion.div
+                          className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                        >
+                          <ArrowRight className="w-6 h-6 text-primary" />
+                        </motion.div>
                       </motion.div>
-                    </motion.div>
 
-                    {/* Content */}
-                    <div className={`space-y-6 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <project.icon className="w-5 h-5" />
-                        <span>{project.period}</span>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                          {project.description}
-                        </p>
-                      </div>
+                      <div className="space-y-6">
+                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                          <project.icon className="w-5 h-5" />
+                          <span>{project.period}</span>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">
+                            {project.description}
+                          </p>
+                        </div>
 
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, i) => (
-                          <Badge 
-                            key={i} 
-                            variant="secondary"
-                            className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, i) => (
+                            <Badge 
+                              key={i} 
+                              variant="secondary"
+                              className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
 
-                      <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-4 transition-all">
-                        <span>View Case Study</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-4 transition-all">
+                          <span>View Case Study</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Research */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-primary">Research</h3>
+            <div className="space-y-20">
+              {projectCategories.research.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Link 
+                    to={`/projects/${project.id}`}
+                    className="group block"
+                  >
+                    <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+                      <motion.div 
+                        className={`relative ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="relative overflow-hidden rounded-2xl shadow-elegant">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+                        <motion.div
+                          className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                        >
+                          <ArrowRight className="w-6 h-6 text-primary" />
+                        </motion.div>
+                      </motion.div>
+
+                      <div className={`space-y-6 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                          <project.icon className="w-5 h-5" />
+                          <span>{project.period}</span>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, i) => (
+                            <Badge 
+                              key={i} 
+                              variant="secondary"
+                              className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-4 transition-all">
+                          <span>View Details</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Engineering Solutions */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-primary">Engineering Solutions</h3>
+            <div className="space-y-20">
+              {projectCategories.engineering.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Link 
+                    to={`/projects/${project.id}`}
+                    className="group block"
+                  >
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                      <motion.div 
+                        className="relative"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="relative overflow-hidden rounded-2xl shadow-elegant">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+                        <motion.div
+                          className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                        >
+                          <ArrowRight className="w-6 h-6 text-primary" />
+                        </motion.div>
+                      </motion.div>
+
+                      <div className="space-y-6">
+                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                          <project.icon className="w-5 h-5" />
+                          <span>{project.period}</span>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, i) => (
+                            <Badge 
+                              key={i} 
+                              variant="secondary"
+                              className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-4 transition-all">
+                          <span>View Details</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <motion.div
@@ -154,11 +318,11 @@ const Projects = () => {
             viewport={{ once: true }}
           >
             <p className="text-muted-foreground">
-              Interested in more projects? Check out my{" "}
+              Want to know more? Check out my{" "}
               <Link to="/blog" className="text-primary hover:underline">
                 blog
               </Link>{" "}
-              for detailed write-ups and insights.
+              for write-ups and process notes.
             </p>
           </motion.div>
         </div>
