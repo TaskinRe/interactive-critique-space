@@ -1,11 +1,15 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Microscope, Cpu, ArrowRight, Heart } from "lucide-react";
+import { Brain, Microscope, Cpu, ArrowRight, Heart, HandMetal, Headphones, Users, Video } from "lucide-react";
 import eegAbstract from "@/assets/eeg-abstract.png";
 import muonAbstract from "@/assets/muon-abstract.png";
 import fmriAbstract from "@/assets/fmri-abstract.png";
 import andoorAbstract from "@/assets/andoor-abstract.png";
+import bhapticsAbstract from "@/assets/bhaptics-abstract.png";
+import vrAbstract from "@/assets/vr-abstract.png";
+import westemAbstract from "@/assets/westem-abstract.png";
+import geeniucAbstract from "@/assets/geeniuc-abstract.png";
 import { useRef } from "react";
 
 const Projects = () => {
@@ -25,6 +29,24 @@ const Projects = () => {
         icon: Heart,
         image: andoorAbstract,
         tags: ["Product Design", "Haptic Feedback", "ASD"],
+        period: "2024"
+      },
+      {
+        id: "bhaptics",
+        title: "bHaptics Tactile Designer",
+        description: "Designed immersive haptic feedback patterns for VR experiences. Created tactile sensations that enhance virtual interactions through precise vibration mapping.",
+        icon: HandMetal,
+        image: bhapticsAbstract,
+        tags: ["Haptic Design", "VR", "UX"],
+        period: "2024"
+      },
+      {
+        id: "vr-project",
+        title: "VR Interactive Experience",
+        description: "Developed an immersive VR environment combining spatial audio and haptic feedback for enhanced presence and user engagement.",
+        icon: Headphones,
+        image: vrAbstract,
+        tags: ["Virtual Reality", "Unity", "Interactive Media"],
         period: "2024"
       }
     ],
@@ -58,10 +80,32 @@ const Projects = () => {
         tags: ["C++", "Geant4", "Physics"],
         period: "Summer 2024"
       }
+    ],
+    leadership: [
+      {
+        id: "westem-outreach",
+        title: "weSTEM High School Conference",
+        description: "Led outreach as Head, managing collaboration between weSTEM and NYUAD Admissions. Coordinated workshops for 80 high schools across the UAE, handling logistics and communications for 55+ students.",
+        icon: Users,
+        image: westemAbstract,
+        tags: ["Leadership", "STEM Education", "Event Management"],
+        period: "2023-2024"
+      }
+    ],
+    media: [
+      {
+        id: "geeniuc-games",
+        title: "Geeniuc Games - Story Designer",
+        description: "Led story development for an educational game using public domain narratives. Used Midjourney for storyboarding and collaborated on visual design to blend education with entertainment.",
+        icon: Video,
+        image: geeniucAbstract,
+        tags: ["Game Design", "Storytelling", "Visual Design"],
+        period: "Summer 2023"
+      }
     ]
   };
 
-  const allProjects = [...projectCategories.product, ...projectCategories.research, ...projectCategories.engineering];
+  const allProjects = [...projectCategories.product, ...projectCategories.research, ...projectCategories.engineering, ...projectCategories.leadership, ...projectCategories.media];
 
   return (
     <section id="projects" className="py-20 bg-background" ref={ref}>
@@ -306,6 +350,126 @@ const Projects = () => {
                       </div>
                     </div>
                   </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Leadership & Community */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-primary">Leadership & Community</h3>
+            <div className="space-y-20">
+              {projectCategories.leadership.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <motion.div 
+                      className="relative"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="relative overflow-hidden rounded-2xl shadow-elegant">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-[400px] object-cover"
+                        />
+                      </div>
+                    </motion.div>
+
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <project.icon className="w-5 h-5" />
+                        <span>{project.period}</span>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-3xl md:text-4xl font-bold mb-3">
+                          {project.title}
+                        </h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag, i) => (
+                          <Badge 
+                            key={i} 
+                            variant="secondary"
+                            className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Arts & Media */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-primary">Arts & Media</h3>
+            <div className="space-y-20">
+              {projectCategories.media.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+                    <motion.div 
+                      className={`relative ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="relative overflow-hidden rounded-2xl shadow-elegant">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-[400px] object-cover"
+                        />
+                      </div>
+                    </motion.div>
+
+                    <div className={`space-y-6 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <project.icon className="w-5 h-5" />
+                        <span>{project.period}</span>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-3xl md:text-4xl font-bold mb-3">
+                          {project.title}
+                        </h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag, i) => (
+                          <Badge 
+                            key={i} 
+                            variant="secondary"
+                            className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
