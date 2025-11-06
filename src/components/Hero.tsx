@@ -71,8 +71,8 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            I design solutions for people whom normalized society has made life harder to live—
-            creating humane, personalized experiences instead of one-size-fits-all answers.
+            I build for those society overlooks—designing deeply personalized, human-centered solutions 
+            that reject cookie-cutter answers and challenge the status quo.
           </motion.p>
 
           <motion.div
