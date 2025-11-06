@@ -38,7 +38,7 @@ const P5CenteredName = ({ text = "Rehnuma Taskin" }: { text?: string }) => {
         const cnv = s.createCanvas(w, h);
         cnv.parent(containerRef.current!);
         s.pixelDensity(Math.min(2, s.pixelDensity()));
-        s.textFont("ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial");
+        s.textFont("'Cormorant Garamond', serif");
         s.textAlign(s.CENTER, s.CENTER);
         s.noFill();
       };

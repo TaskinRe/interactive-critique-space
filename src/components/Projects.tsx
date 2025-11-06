@@ -25,7 +25,7 @@ const Projects = () => {
       {
         id: "andoor",
         title: "Andoor - Haptic Companion for Calm",
-        description: "Built a therapeutic haptic device that mimics cat purring vibrations. Tested with neurodivergent children to support sensory regulation during overwhelming moments.",
+        description: "What if a simple vibration could bring calm to a child's overwhelming moment? Andoor recreates the soothing rhythm of a cat's purr through haptic feedback, offering a tangible anchor for neurodivergent children when the world becomes too much. Tested and refined with real users, this device speaks the language of comfort through touch.",
         icon: Heart,
         image: andoorAbstract,
         tags: ["Product Design", "Haptic Feedback", "ASD"],
@@ -34,7 +34,7 @@ const Projects = () => {
       {
         id: "bhaptics",
         title: "bHaptics Tactile Designer",
-        description: "Designed immersive haptic feedback patterns for VR experiences. Created tactile sensations that enhance virtual interactions through precise vibration mapping.",
+        description: "Touch is the missing dimension in virtual reality. Through precise vibration choreography, I crafted haptic signatures that make the intangible feel real—from the tension of a drawn bowstring to the cascade of raindrops on skin. Every pattern maps sensation to meaning, transforming VR from something you see to something you truly feel.",
         icon: HandMetal,
         image: bhapticsAbstract,
         tags: ["Haptic Design", "VR", "UX"],
@@ -43,7 +43,7 @@ const Projects = () => {
       {
         id: "vr-project",
         title: "VR Interactive Experience",
-        description: "Developed an immersive VR environment combining spatial audio and haptic feedback for enhanced presence and user engagement.",
+        description: "Presence isn't just visual—it's a symphony of senses working in concert. This immersive VR world weaves spatial audio with haptic feedback, creating moments where you forget you're wearing a headset. When sound, sight, and touch align perfectly, the virtual becomes visceral.",
         icon: Headphones,
         image: vrAbstract,
         tags: ["Virtual Reality", "Unity", "Interactive Media"],
@@ -54,7 +54,7 @@ const Projects = () => {
       {
         id: "eeg-brain-imaging",
         title: "EEG Brain Imaging",
-        description: "Working with event-related potentials to understand how the brain processes linguistic content and social cues in the SONA Lab.",
+        description: "The brain speaks in electrical whispers. Through EEG event-related potentials, I'm decoding how neural circuits process language and navigate social nuances. Each spike and dip reveals the invisible machinery of human connection—watching thought patterns unfold in real-time at the SONA Lab.",
         icon: Brain,
         image: eegAbstract,
         tags: ["Neuroscience", "EEG", "Data Analysis"],
@@ -63,7 +63,7 @@ const Projects = () => {
       {
         id: "fmri-motion",
         title: "fMRI Motion Perception",
-        description: "Studied how V1 and MT cortices respond to motion stimuli using fMRI. Built the experimental paradigm in MATLAB with Psychtoolbox and analyzed results through GLM modeling.",
+        description: "How does the brain transform moving light into meaning? By mapping V1 and MT cortical responses through fMRI, I traced the neural journey from raw visual input to perceived motion. From coding experimental paradigms in MATLAB to unraveling activation patterns with GLM models, this research reveals the computational poetry of visual perception.",
         icon: Cpu,
         image: fmriAbstract,
         tags: ["MATLAB", "fMRI", "Vision Science"],
@@ -74,7 +74,7 @@ const Projects = () => {
       {
         id: "muon-tomography",
         title: "Muon Tomography Simulation",
-        description: "Simulated cosmic ray muon detectors in Geant4 with C++ on Linux. Modified detector geometries to optimize detection efficiency.",
+        description: "Cosmic rays rain down constantly, carrying secrets about the universe. I engineered virtual muon detectors in Geant4, optimizing geometries to catch these elusive particles. Through C++ simulations on Linux, each iteration brought us closer to seeing the invisible—using particles born in distant galaxies to image what lies hidden on Earth.",
         icon: Microscope,
         image: muonAbstract,
         tags: ["C++", "Geant4", "Physics"],
@@ -85,7 +85,7 @@ const Projects = () => {
       {
         id: "westem-outreach",
         title: "weSTEM High School Conference",
-        description: "Led outreach as Head, managing collaboration between weSTEM and NYUAD Admissions. Coordinated workshops for 80 high schools across the UAE, handling logistics and communications for 55+ students.",
+        description: "Inspiration needs infrastructure. As Head of Outreach, I built bridges between 80 high schools across the UAE and NYUAD, orchestrating workshops that transformed STEM from intimidating to accessible for 55+ students. Behind every sparked curiosity was meticulous coordination—turning logistical complexity into seamless experiences that opened doors for the next generation.",
         icon: Users,
         image: westemAbstract,
         tags: ["Leadership", "STEM Education", "Event Management"],
@@ -96,7 +96,7 @@ const Projects = () => {
       {
         id: "geeniuc-games",
         title: "Geeniuc Games - Story Designer",
-        description: "Led story development for an educational game using public domain narratives. Used Midjourney for storyboarding and collaborated on visual design to blend education with entertainment.",
+        description: "What if learning felt like play? I reimagined timeless public domain stories as interactive game narratives, wielding Midjourney to storyboard worlds where education and entertainment dissolve into each other. Every visual choice and story beat was crafted to make knowledge irresistible—proving that the best teacher is curiosity, not curriculum.",
         icon: Video,
         image: geeniucAbstract,
         tags: ["Game Design", "Storytelling", "Visual Design"],
@@ -107,14 +107,14 @@ const Projects = () => {
       {
         id: "al-awael-series",
         title: "Al Awael - Cultural Documentary Series",
-        description: "Hosted and produced episodes for a YouTube documentary series on early Islamic discoveries. Handled camera work, lighting, scriptwriting, and on-camera hosting. Most-watched episodes reached thousands of viewers.",
+        description: "Some stories deserve to be remembered. I brought early Islamic discoveries to life on screen, serving as both host and producer for this YouTube documentary series. From framing shots to crafting scripts, I translated forgotten innovations into compelling narratives. Thousands have watched these episodes—proof that when history is told with care, people listen.",
         icon: Video,
         image: geeniucAbstract,
         tags: ["Documentary", "Hosting", "Filmmaking"],
         period: "Spring 2023",
         links: [
-          { url: "https://youtu.be/-mHF3AH83EE?si=xbooBxYwmYNjZz1p", label: "Episode 1" },
-          { url: "https://youtu.be/PxSg5VwwkYs?si=LRQFR377YVM-BNPJ", label: "Episode 2" }
+          { url: "https://youtu.be/-mHF3AH83EE?si=xbooBxYwmYNjZz1p", label: "Watch Episode 1" },
+          { url: "https://youtu.be/PxSg5VwwkYs?si=LRQFR377YVM-BNPJ", label: "Watch Episode 2" }
         ]
       }
     ]

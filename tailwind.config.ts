@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Lexend', 'sans-serif'],
         accessible: ['Atkinson Hyperlegible', 'sans-serif'],
+        display: ['Cormorant Garamond', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
