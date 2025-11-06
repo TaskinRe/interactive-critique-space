@@ -12,7 +12,7 @@ const Hero = () => {
 
   const achievements = [
     { icon: Award, text: "AntlerxLovable Hackathon Runner-up" },
-    { icon: Award, text: "Google AI for Good Semifinalist" },
+    { icon: Award, text: "Google AI for Good Finalist" },
     { icon: Award, text: "NYU Abu Dhabi '26" },
   ];
 
@@ -71,8 +71,8 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Designing accessible solutions at the intersection of neuroscience, space research, 
-            and human-centered innovation with a focus on assistive technology.
+            I design solutions for people whom normalized society has made life harder to live—
+            creating humane, personalized experiences instead of one-size-fits-all answers.
           </motion.p>
 
           <motion.div

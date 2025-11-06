@@ -102,10 +102,25 @@ const Projects = () => {
         tags: ["Game Design", "Storytelling", "Visual Design"],
         period: "Summer 2023"
       }
+    ],
+    hobbies: [
+      {
+        id: "al-awael-series",
+        title: "Al Awael - Cultural Documentary Series",
+        description: "Hosted and produced episodes for a YouTube documentary series on early Islamic discoveries. Handled camera work, lighting, scriptwriting, and on-camera hosting. Most-watched episodes reached thousands of viewers.",
+        icon: Video,
+        image: geeniucAbstract,
+        tags: ["Documentary", "Hosting", "Filmmaking"],
+        period: "Spring 2023",
+        links: [
+          { url: "https://youtu.be/-mHF3AH83EE?si=xbooBxYwmYNjZz1p", label: "Episode 1" },
+          { url: "https://youtu.be/PxSg5VwwkYs?si=LRQFR377YVM-BNPJ", label: "Episode 2" }
+        ]
+      }
     ]
   };
 
-  const allProjects = [...projectCategories.product, ...projectCategories.research, ...projectCategories.engineering, ...projectCategories.leadership, ...projectCategories.media];
+  const allProjects = [...projectCategories.product, ...projectCategories.research, ...projectCategories.engineering, ...projectCategories.leadership, ...projectCategories.media, ...projectCategories.hobbies];
 
   return (
     <section id="projects" className="py-20 bg-background" ref={ref}>
@@ -468,6 +483,83 @@ const Projects = () => {
                           </Badge>
                         ))}
                       </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Personal Projects & Hobbies */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-primary">Personal Projects & Hobbies</h3>
+            <div className="space-y-20">
+              {projectCategories.hobbies.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <motion.div 
+                      className="relative"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="relative overflow-hidden rounded-2xl shadow-elegant">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-[400px] object-cover"
+                        />
+                      </div>
+                    </motion.div>
+
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <project.icon className="w-5 h-5" />
+                        <span>{project.period}</span>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-3xl md:text-4xl font-bold mb-3">
+                          {project.title}
+                        </h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag, i) => (
+                          <Badge 
+                            key={i} 
+                            variant="secondary"
+                            className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+
+                      {project.links && (
+                        <div className="flex flex-wrap gap-3">
+                          {project.links.map((link, i) => (
+                            <a
+                              key={i}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 rounded-lg transition-colors font-medium"
+                            >
+                              <Video className="w-4 h-4" />
+                              {link.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </motion.div>
