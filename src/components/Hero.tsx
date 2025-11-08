@@ -2,7 +2,6 @@ import { Github, Linkedin, Mail, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import FloatingOrbs from "./FloatingOrbs";
-import P5CenteredName from "./P5CenteredName";
 import P5ScribbleBackground from "./P5ScribbleBackground";
 
 const Hero = () => {
@@ -32,9 +31,14 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6 relative"
           >
-            <div className="relative h-32">
-              <P5CenteredName text="Rehnuma Taskin" />
-            </div>
+            <motion.h1
+              className="text-6xl md:text-8xl font-display font-bold tracking-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              Rehnuma Taskin
+            </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-muted-foreground"
               initial={{ opacity: 0, y: 20 }}
@@ -71,8 +75,7 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            I build for those society overlooks—designing deeply personalized, human-centered solutions 
-            that reject cookie-cutter answers and challenge the status quo.
+            I work with people who fall through the cracks of "normal." My designs don't just accommodate differences—they celebrate them. Because the world doesn't need more generic solutions. It needs ones built for real humans, not imaginary averages.
           </motion.p>
 
           <motion.div

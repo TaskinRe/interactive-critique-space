@@ -25,7 +25,7 @@ const Projects = () => {
       {
         id: "andoor",
         title: "Andoor - Haptic Companion for Calm",
-        description: "What if a simple vibration could bring calm to a child's overwhelming moment? Andoor recreates the soothing rhythm of a cat's purr through haptic feedback, offering a tangible anchor for neurodivergent children when the world becomes too much. Tested and refined with real users, this device speaks the language of comfort through touch.",
+        description: "My younger cousin used to rock back and forth when everything got too loud. I noticed our cat's purr was the only thing that helped. So I built Andoor—a small device that recreates that exact vibration pattern. It's not therapy, it's not a cure. It's just a pocket-sized anchor for kids who need one. We tested it with actual families. It works.",
         icon: Heart,
         image: andoorAbstract,
         tags: ["Product Design", "Haptic Feedback", "ASD"],
@@ -34,7 +34,7 @@ const Projects = () => {
       {
         id: "bhaptics",
         title: "bHaptics Tactile Designer",
-        description: "Touch is the missing dimension in virtual reality. Through precise vibration choreography, I crafted haptic signatures that make the intangible feel real—from the tension of a drawn bowstring to the cascade of raindrops on skin. Every pattern maps sensation to meaning, transforming VR from something you see to something you truly feel.",
+        description: "VR looks incredible. But it still feels like air. I spent months programming vibration patterns—mapping every raindrop, every footstep, every collision to your body. The goal? Make you forget you're wearing a suit. When you pull a virtual bowstring and feel the tension in your arms, that's when VR stops being a trick and starts being an experience.",
         icon: HandMetal,
         image: bhapticsAbstract,
         tags: ["Haptic Design", "VR", "UX"],
@@ -43,7 +43,7 @@ const Projects = () => {
       {
         id: "vr-project",
         title: "VR Interactive Experience",
-        description: "Presence isn't just visual—it's a symphony of senses working in concert. This immersive VR world weaves spatial audio with haptic feedback, creating moments where you forget you're wearing a headset. When sound, sight, and touch align perfectly, the virtual becomes visceral.",
+        description: "Built a VR world where everything syncs—what you see, what you hear, what you feel through the haptics. The magic happens when your brain stops questioning if it's real. I'm obsessed with those moments when someone takes off the headset and goes 'wait, that was virtual?' That's the whole point.",
         icon: Headphones,
         image: vrAbstract,
         tags: ["Virtual Reality", "Unity", "Interactive Media"],
@@ -54,7 +54,7 @@ const Projects = () => {
       {
         id: "eeg-brain-imaging",
         title: "EEG Brain Imaging",
-        description: "The brain speaks in electrical whispers. Through EEG event-related potentials, I'm decoding how neural circuits process language and navigate social nuances. Each spike and dip reveals the invisible machinery of human connection—watching thought patterns unfold in real-time at the SONA Lab.",
+        description: "At the SONA Lab, I'm reading brain waves. Literally. We attach electrodes to people's heads and watch electrical patterns spike when they process language or react to social cues. Every tiny voltage change tells a story about how we think and connect. It's like eavesdropping on neurons having a conversation.",
         icon: Brain,
         image: eegAbstract,
         tags: ["Neuroscience", "EEG", "Data Analysis"],
@@ -63,7 +63,7 @@ const Projects = () => {
       {
         id: "fmri-motion",
         title: "fMRI Motion Perception",
-        description: "How does the brain transform moving light into meaning? By mapping V1 and MT cortical responses through fMRI, I traced the neural journey from raw visual input to perceived motion. From coding experimental paradigms in MATLAB to unraveling activation patterns with GLM models, this research reveals the computational poetry of visual perception.",
+        description: "Ever wonder how your brain sees motion? I mapped the exact brain regions (V1 and MT cortex) that light up when you watch something move. Used fMRI scans and MATLAB to decode how visual signals travel through your head. Turns out, your brain is doing calculus every time you watch a car drive by. Pretty cool.",
         icon: Cpu,
         image: fmriAbstract,
         tags: ["MATLAB", "fMRI", "Vision Science"],
@@ -74,7 +74,7 @@ const Projects = () => {
       {
         id: "muon-tomography",
         title: "Muon Tomography Simulation",
-        description: "Cosmic rays rain down constantly, carrying secrets about the universe. I engineered virtual muon detectors in Geant4, optimizing geometries to catch these elusive particles. Through C++ simulations on Linux, each iteration brought us closer to seeing the invisible—using particles born in distant galaxies to image what lies hidden on Earth.",
+        description: "Cosmic rays from space hit Earth constantly. I simulated detectors in C++ to catch them and use them like X-rays to see through solid objects. Think airport security scanners, but powered by particles from exploding stars. Spent my summer optimizing detector designs in Geant4. Physics is weird and I love it.",
         icon: Microscope,
         image: muonAbstract,
         tags: ["C++", "Geant4", "Physics"],
@@ -85,7 +85,7 @@ const Projects = () => {
       {
         id: "westem-outreach",
         title: "weSTEM High School Conference",
-        description: "Inspiration needs infrastructure. As Head of Outreach, I built bridges between 80 high schools across the UAE and NYUAD, orchestrating workshops that transformed STEM from intimidating to accessible for 55+ students. Behind every sparked curiosity was meticulous coordination—turning logistical complexity into seamless experiences that opened doors for the next generation.",
+        description: "Reached out to 80 high schools across the UAE to bring 55+ students to NYUAD for STEM workshops. As Head of Outreach, I dealt with emails, logistics, and making sure teenagers actually showed up excited. Some of them said it changed how they see science. That's why I did it.",
         icon: Users,
         image: westemAbstract,
         tags: ["Leadership", "STEM Education", "Event Management"],
@@ -96,7 +96,7 @@ const Projects = () => {
       {
         id: "geeniuc-games",
         title: "Geeniuc Games - Story Designer",
-        description: "What if learning felt like play? I reimagined timeless public domain stories as interactive game narratives, wielding Midjourney to storyboard worlds where education and entertainment dissolve into each other. Every visual choice and story beat was crafted to make knowledge irresistible—proving that the best teacher is curiosity, not curriculum.",
+        description: "Turned classic stories into educational games. Used Midjourney to design every scene and storyboard. The goal? Make learning so fun kids forget they're learning. If a game can teach without feeling like homework, we're doing something right.",
         icon: Video,
         image: geeniucAbstract,
         tags: ["Game Design", "Storytelling", "Visual Design"],
@@ -107,14 +107,14 @@ const Projects = () => {
       {
         id: "al-awael-series",
         title: "Al Awael - Cultural Documentary Series",
-        description: "Some stories deserve to be remembered. I brought early Islamic discoveries to life on screen, serving as both host and producer for this YouTube documentary series. From framing shots to crafting scripts, I translated forgotten innovations into compelling narratives. Thousands have watched these episodes—proof that when history is told with care, people listen.",
+        description: "Hosted and produced a YouTube series about early Islamic scientific discoveries that most people have never heard of. Shot everything myself, wrote the scripts, did the editing. Thousands of people watched it. History matters when you tell it like it actually happened—messy, surprising, and human.",
         icon: Video,
         image: geeniucAbstract,
         tags: ["Documentary", "Hosting", "Filmmaking"],
         period: "Spring 2023",
         links: [
-          { url: "https://youtu.be/-mHF3AH83EE?si=xbooBxYwmYNjZz1p", label: "Watch Episode 1" },
-          { url: "https://youtu.be/PxSg5VwwkYs?si=LRQFR377YVM-BNPJ", label: "Watch Episode 2" }
+          { url: "https://youtu.be/-mHF3AH83EE?si=xbooBxYwmYNjZz1p", label: "📺 Episode 1" },
+          { url: "https://youtu.be/PxSg5VwwkYs?si=LRQFR377YVM-BNPJ", label: "📺 Episode 2" }
         ]
       }
     ]
@@ -150,6 +150,7 @@ const Projects = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
+                  whileHover={{ y: -5 }}
                 >
                   <Link 
                     to={project.id === "andoor" ? "/case-study/andoor" : `/projects/${project.id}`}
@@ -158,7 +159,7 @@ const Projects = () => {
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                       <motion.div 
                         className="relative"
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                       >
                         <div className="relative overflow-hidden rounded-2xl shadow-elegant">
@@ -544,21 +545,29 @@ const Projects = () => {
                         ))}
                       </div>
 
-                      {project.links && (
-                        <div className="flex flex-wrap gap-3">
+                       {project.links && (
+                        <motion.div 
+                          className="flex flex-wrap gap-3"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.2 }}
+                        >
                           {project.links.map((link, i) => (
-                            <a
+                            <motion.a
                               key={i}
                               href={link.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 rounded-lg transition-colors font-medium"
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg transition-all font-medium shadow-medium hover:shadow-soft hover:scale-105"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
                             >
-                              <Video className="w-4 h-4" />
+                              <Video className="w-5 h-5" />
                               {link.label}
-                            </a>
+                            </motion.a>
                           ))}
-                        </div>
+                        </motion.div>
                       )}
                     </div>
                   </div>
