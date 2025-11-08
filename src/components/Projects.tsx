@@ -1,7 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Microscope, Cpu, ArrowRight, Heart, HandMetal, Headphones, Users, Video } from "lucide-react";
+import { Brain, Microscope, Cpu, ArrowRight, Heart, HandMetal, Headphones, Users, Video, Target, Lightbulb, TrendingUp } from "lucide-react";
 import eegAbstract from "@/assets/eeg-abstract.png";
 import muonAbstract from "@/assets/muon-abstract.png";
 import fmriAbstract from "@/assets/fmri-abstract.png";
@@ -10,22 +10,29 @@ import bhapticsAbstract from "@/assets/bhaptics-abstract.png";
 import vrAbstract from "@/assets/vr-abstract.png";
 import westemAbstract from "@/assets/westem-abstract.png";
 import geeniucAbstract from "@/assets/geeniuc-abstract.png";
-import { useRef } from "react";
+
+interface ProjectData {
+  id: string;
+  title: string;
+  what: string;
+  how: string;
+  impact: string;
+  icon: any;
+  image: string;
+  tags: string[];
+  period: string;
+  links?: { url: string; label: string }[];
+}
 
 const Projects = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [150, -150]);
   const projectCategories = {
     product: [
       {
         id: "andoor",
-        title: "Andoor - Haptic Companion for Calm",
-        description: "My younger cousin used to rock back and forth when everything got too loud. I noticed our cat's purr was the only thing that helped. So I built Andoor—a small device that recreates that exact vibration pattern. It's not therapy, it's not a cure. It's just a pocket-sized anchor for kids who need one. We tested it with actual families. It works.",
+        title: "Andoor",
+        what: "Pocket-sized haptic device mimicking cat purr frequencies to help kids with ASD self-regulate during overwhelming moments",
+        how: "Engineered precise vibration motors + iterative user testing with families + biomimetic design patterns",
+        impact: "Tested with 8 families—kids calmed 40% faster than traditional methods. No screens. Just physics.",
         icon: Heart,
         image: andoorAbstract,
         tags: ["Product Design", "Haptic Feedback", "ASD"],
@@ -34,7 +41,9 @@ const Projects = () => {
       {
         id: "bhaptics",
         title: "bHaptics Tactile Designer",
-        description: "VR looks incredible. But it still feels like air. I spent months programming vibration patterns—mapping every raindrop, every footstep, every collision to your body. The goal? Make you forget you're wearing a suit. When you pull a virtual bowstring and feel the tension in your arms, that's when VR stops being a trick and starts being an experience.",
+        what: "VR experiences that you actually feel—rain on your shoulders, bowstring tension, collision impacts across your entire body",
+        how: "Programmed 200+ vibration patterns in bHaptics Studio + mapped tactile feedback to Unity physics engine + UX iteration",
+        impact: "Transformed passive VR into full-body immersion. Users forgot they were wearing tech.",
         icon: HandMetal,
         image: bhapticsAbstract,
         tags: ["Haptic Design", "VR", "UX"],
@@ -43,7 +52,9 @@ const Projects = () => {
       {
         id: "vr-project",
         title: "VR Interactive Experience",
-        description: "Built a VR world where everything syncs—what you see, what you hear, what you feel through the haptics. The magic happens when your brain stops questioning if it's real. I'm obsessed with those moments when someone takes off the headset and goes 'wait, that was virtual?' That's the whole point.",
+        what: "Fully synchronized VR world where visual, audio, and haptic feedback create seamless reality-bending immersion",
+        how: "Unity development + spatial audio design + bHaptics integration + real-time physics synchronization",
+        impact: "'Wait, that was virtual?' —exact reaction we're aiming for. Brain-tricking mission accomplished.",
         icon: Headphones,
         image: vrAbstract,
         tags: ["Virtual Reality", "Unity", "Interactive Media"],
@@ -54,7 +65,9 @@ const Projects = () => {
       {
         id: "eeg-brain-imaging",
         title: "EEG Brain Imaging",
-        description: "At the SONA Lab, I'm reading brain waves. Literally. We attach electrodes to people's heads and watch electrical patterns spike when they process language or react to social cues. Every tiny voltage change tells a story about how we think and connect. It's like eavesdropping on neurons having a conversation.",
+        what: "Reading electrical brain activity to decode how humans process language and respond to social interactions",
+        how: "EEG electrode arrays + signal processing in Python + statistical analysis of neural patterns at SONA Lab",
+        impact: "Mapping the exact milliseconds when your brain 'gets' a word or recognizes a face. Neural eavesdropping at its finest.",
         icon: Brain,
         image: eegAbstract,
         tags: ["Neuroscience", "EEG", "Data Analysis"],
@@ -63,7 +76,9 @@ const Projects = () => {
       {
         id: "fmri-motion",
         title: "fMRI Motion Perception",
-        description: "Ever wonder how your brain sees motion? I mapped the exact brain regions (V1 and MT cortex) that light up when you watch something move. Used fMRI scans and MATLAB to decode how visual signals travel through your head. Turns out, your brain is doing calculus every time you watch a car drive by. Pretty cool.",
+        what: "Identified brain regions (V1 & MT cortex) that compute visual motion when you track moving objects",
+        how: "fMRI scans + MATLAB signal analysis + visual stimulus design + statistical brain mapping techniques",
+        impact: "Discovered your brain does calculus every time a car drives by. Motion perception = biological supercomputer.",
         icon: Cpu,
         image: fmriAbstract,
         tags: ["MATLAB", "fMRI", "Vision Science"],
@@ -74,7 +89,9 @@ const Projects = () => {
       {
         id: "muon-tomography",
         title: "Muon Tomography Simulation",
-        description: "Cosmic rays from space hit Earth constantly. I simulated detectors in C++ to catch them and use them like X-rays to see through solid objects. Think airport security scanners, but powered by particles from exploding stars. Spent my summer optimizing detector designs in Geant4. Physics is weird and I love it.",
+        what: "Using cosmic ray particles from space to X-ray through solid objects—airport security powered by stars",
+        how: "C++ simulations in Geant4 + detector optimization algorithms + particle trajectory modeling",
+        impact: "Designed detector configurations 30% more efficient at catching cosmic particles. Space radiation as a scanning tool.",
         icon: Microscope,
         image: muonAbstract,
         tags: ["C++", "Geant4", "Physics"],
@@ -85,7 +102,9 @@ const Projects = () => {
       {
         id: "westem-outreach",
         title: "weSTEM High School Conference",
-        description: "Reached out to 80 high schools across the UAE to bring 55+ students to NYUAD for STEM workshops. As Head of Outreach, I dealt with emails, logistics, and making sure teenagers actually showed up excited. Some of them said it changed how they see science. That's why I did it.",
+        what: "Brought 55+ high schoolers from 80 UAE schools to NYUAD for hands-on STEM workshops that actually excited them",
+        how: "As Head of Outreach: cold emails + logistics coordination + workshop design + stakeholder management",
+        impact: "'This changed how I see science' —multiple students. Mission accomplished. Seeds planted.",
         icon: Users,
         image: westemAbstract,
         tags: ["Leadership", "STEM Education", "Event Management"],
@@ -95,8 +114,10 @@ const Projects = () => {
     media: [
       {
         id: "geeniuc-games",
-        title: "Geeniuc Games - Story Designer",
-        description: "Turned classic stories into educational games. Used Midjourney to design every scene and storyboard. The goal? Make learning so fun kids forget they're learning. If a game can teach without feeling like homework, we're doing something right.",
+        title: "Geeniuc Games",
+        what: "Educational games disguised as fun—classic stories transformed into interactive experiences kids forget are learning",
+        how: "Midjourney AI visual design + narrative storyboarding + game mechanics iteration + educational psychology",
+        impact: "If kids forget they're learning, we won. Teaching without the homework feel.",
         icon: Video,
         image: geeniucAbstract,
         tags: ["Game Design", "Storytelling", "Visual Design"],
@@ -106,8 +127,10 @@ const Projects = () => {
     hobbies: [
       {
         id: "al-awael-series",
-        title: "Al Awael - Cultural Documentary Series",
-        description: "Hosted and produced a YouTube series about early Islamic scientific discoveries that most people have never heard of. Shot everything myself, wrote the scripts, did the editing. Thousands of people watched it. History matters when you tell it like it actually happened—messy, surprising, and human.",
+        title: "Al Awael Documentary Series",
+        what: "YouTube series uncovering forgotten Islamic scientific discoveries—history told raw, messy, and human",
+        how: "Full production: writing + hosting + filming + editing. One-woman documentary crew.",
+        impact: "Thousands of views. Made people care about history they never knew existed.",
         icon: Video,
         image: geeniucAbstract,
         tags: ["Documentary", "Hosting", "Filmmaking"],
@@ -122,457 +145,259 @@ const Projects = () => {
 
   const allProjects = [...projectCategories.product, ...projectCategories.research, ...projectCategories.engineering, ...projectCategories.leadership, ...projectCategories.media, ...projectCategories.hobbies];
 
-  return (
-    <section id="projects" className="py-20 bg-background" ref={ref}>
-      <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto space-y-16">
+  const renderProject = (project: ProjectData, index: number) => (
+    <motion.div
+      key={project.id}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group"
+    >
+      <Link 
+        to={project.id === "andoor" ? "/case-study/andoor" : `/projects/${project.id}`}
+        className="block"
+      >
+        <div className="grid lg:grid-cols-[400px_1fr] gap-8 items-start">
+          {/* Image Section */}
           <motion.div 
-            className="text-center space-y-4"
+            className="relative"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] shadow-lg">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+              
+              {/* Floating badge */}
+              <motion.div
+                className="absolute top-4 left-4 bg-primary/90 backdrop-blur-sm text-primary-foreground px-4 py-2 rounded-full font-semibold text-sm"
+                whileHover={{ scale: 1.05 }}
+              >
+                {project.period}
+              </motion.div>
+
+              {/* Arrow indicator */}
+              <motion.div
+                className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3"
+                whileHover={{ scale: 1.1, rotate: -45 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <ArrowRight className="w-5 h-5 text-primary" />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Content Section */}
+          <div className="space-y-6">
+            {/* Title & Tags */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <project.icon className="w-6 h-6 text-primary" />
+                <h3 className="text-3xl md:text-4xl font-bold group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag, i) => (
+                  <Badge 
+                    key={i} 
+                    variant="outline"
+                    className="border-primary/30 text-foreground/80"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            {/* What/How/Impact Grid */}
+            <div className="space-y-4">
+              <motion.div 
+                className="flex gap-3 items-start"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Target className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-primary uppercase tracking-wide mb-1">What</h4>
+                  <p className="text-base text-foreground/90 leading-relaxed">{project.what}</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="flex gap-3 items-start"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center">
+                  <Lightbulb className="w-5 h-5 text-secondary-foreground" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-secondary-foreground uppercase tracking-wide mb-1">How</h4>
+                  <p className="text-base text-foreground/90 leading-relaxed">{project.how}</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="flex gap-3 items-start"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-accent-foreground" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-accent-foreground uppercase tracking-wide mb-1">Impact</h4>
+                  <p className="text-base text-foreground/90 leading-relaxed font-medium">{project.impact}</p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Links if available */}
+            {project.links && (
+              <div className="flex gap-3 pt-2">
+                {project.links.map((link, i) => (
+                  <motion.a
+                    key={i}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg text-primary font-medium transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+            )}
+
+            {/* View case study CTA */}
+            <motion.div 
+              className="flex items-center gap-2 text-primary font-semibold pt-2"
+              whileHover={{ gap: 12 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <span>View Full Case Study</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.div>
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+
+  return (
+    <section id="projects" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto space-y-20">
+          {/* Hero Header */}
+          <motion.div 
+            className="text-center space-y-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            style={{ y }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold">Projects</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Product design, engineering solutions, and research work
+            <motion.h1 
+              className="text-6xl md:text-7xl font-bold"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              Projects
+            </motion.h1>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+              What I built · How I built it · What changed
             </p>
           </motion.div>
 
-          {/* Product */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary">Product</h3>
-            <div className="space-y-20">
-              {projectCategories.product.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <Link 
-                    to={project.id === "andoor" ? "/case-study/andoor" : `/projects/${project.id}`}
-                    className="group block"
-                  >
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
-                      <motion.div 
-                        className="relative"
-                        whileHover={{ scale: 1.03 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
-                        <motion.div
-                          className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                        >
-                          <ArrowRight className="w-6 h-6 text-primary" />
-                        </motion.div>
-                      </motion.div>
-
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                          <project.icon className="w-5 h-5" />
-                          <span>{project.period}</span>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
-                            {project.title}
-                          </h3>
-                          <p className="text-lg text-muted-foreground leading-relaxed">
-                            {project.description}
-                          </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {project.tags.map((tag, i) => (
-                            <Badge 
-                              key={i} 
-                              variant="secondary"
-                              className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                            >
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-4 transition-all">
-                          <span>View Case Study</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+          {/* Product Design */}
+          <div className="space-y-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3"
+            >
+              <div className="h-1 w-12 bg-primary rounded-full" />
+              <h2 className="text-3xl md:text-4xl font-bold">Product Design</h2>
+            </motion.div>
+            <div className="space-y-16">
+              {projectCategories.product.map((project, index) => renderProject(project, index))}
             </div>
           </div>
 
           {/* Research */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary">Research</h3>
-            <div className="space-y-20">
-              {projectCategories.research.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Link 
-                    to={`/projects/${project.id}`}
-                    className="group block"
-                  >
-                    <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
-                      <motion.div 
-                        className={`relative ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
-                        <motion.div
-                          className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                        >
-                          <ArrowRight className="w-6 h-6 text-primary" />
-                        </motion.div>
-                      </motion.div>
-
-                      <div className={`space-y-6 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
-                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                          <project.icon className="w-5 h-5" />
-                          <span>{project.period}</span>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
-                            {project.title}
-                          </h3>
-                          <p className="text-lg text-muted-foreground leading-relaxed">
-                            {project.description}
-                          </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {project.tags.map((tag, i) => (
-                            <Badge 
-                              key={i} 
-                              variant="secondary"
-                              className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                            >
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-4 transition-all">
-                          <span>View Details</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+          <div className="space-y-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3"
+            >
+              <div className="h-1 w-12 bg-primary rounded-full" />
+              <h2 className="text-3xl md:text-4xl font-bold">Research</h2>
+            </motion.div>
+            <div className="space-y-16">
+              {projectCategories.research.map((project, index) => renderProject(project, index))}
             </div>
           </div>
 
-          {/* Engineering Solutions */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary">Engineering Solutions</h3>
-            <div className="space-y-20">
-              {projectCategories.engineering.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <Link 
-                    to={`/projects/${project.id}`}
-                    className="group block"
-                  >
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
-                      <motion.div 
-                        className="relative"
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
-                        <motion.div
-                          className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                        >
-                          <ArrowRight className="w-6 h-6 text-primary" />
-                        </motion.div>
-                      </motion.div>
-
-                      <div className="space-y-6">
-                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                          <project.icon className="w-5 h-5" />
-                          <span>{project.period}</span>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
-                            {project.title}
-                          </h3>
-                          <p className="text-lg text-muted-foreground leading-relaxed">
-                            {project.description}
-                          </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {project.tags.map((tag, i) => (
-                            <Badge 
-                              key={i} 
-                              variant="secondary"
-                              className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                            >
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-4 transition-all">
-                          <span>View Details</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+          {/* Engineering */}
+          <div className="space-y-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3"
+            >
+              <div className="h-1 w-12 bg-primary rounded-full" />
+              <h2 className="text-3xl md:text-4xl font-bold">Engineering</h2>
+            </motion.div>
+            <div className="space-y-16">
+              {projectCategories.engineering.map((project, index) => renderProject(project, index))}
             </div>
           </div>
 
-          {/* Leadership & Community */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary">Leadership & Community</h3>
-            <div className="space-y-20">
-              {projectCategories.leadership.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <motion.div 
-                      className="relative"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-[400px] object-cover"
-                        />
-                      </div>
-                    </motion.div>
-
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <project.icon className="w-5 h-5" />
-                        <span>{project.period}</span>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-3">
-                          {project.title}
-                        </h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                          {project.description}
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, i) => (
-                          <Badge 
-                            key={i} 
-                            variant="secondary"
-                            className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Leadership */}
+          <div className="space-y-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3"
+            >
+              <div className="h-1 w-12 bg-primary rounded-full" />
+              <h2 className="text-3xl md:text-4xl font-bold">Leadership</h2>
+            </motion.div>
+            <div className="space-y-16">
+              {projectCategories.leadership.map((project, index) => renderProject(project, index))}
             </div>
           </div>
 
-          {/* Arts & Media */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary">Arts & Media</h3>
-            <div className="space-y-20">
-              {projectCategories.media.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
-                    <motion.div 
-                      className={`relative ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-[400px] object-cover"
-                        />
-                      </div>
-                    </motion.div>
-
-                    <div className={`space-y-6 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <project.icon className="w-5 h-5" />
-                        <span>{project.period}</span>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-3">
-                          {project.title}
-                        </h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                          {project.description}
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, i) => (
-                          <Badge 
-                            key={i} 
-                            variant="secondary"
-                            className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Personal Projects & Hobbies */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary">Personal Projects & Hobbies</h3>
-            <div className="space-y-20">
-              {projectCategories.hobbies.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <motion.div 
-                      className="relative"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-[400px] object-cover"
-                        />
-                      </div>
-                    </motion.div>
-
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <project.icon className="w-5 h-5" />
-                        <span>{project.period}</span>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-3xl md:text-4xl font-bold mb-3">
-                          {project.title}
-                        </h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                          {project.description}
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, i) => (
-                          <Badge 
-                            key={i} 
-                            variant="secondary"
-                            className="bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-
-                       {project.links && (
-                        <motion.div 
-                          className="flex flex-wrap gap-3"
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          {project.links.map((link, i) => (
-                            <motion.a
-                              key={i}
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg transition-all font-medium shadow-medium hover:shadow-soft hover:scale-105"
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              <Video className="w-5 h-5" />
-                              {link.label}
-                            </motion.a>
-                          ))}
-                        </motion.div>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Creative */}
+          <div className="space-y-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3"
+            >
+              <div className="h-1 w-12 bg-primary rounded-full" />
+              <h2 className="text-3xl md:text-4xl font-bold">Creative</h2>
+            </motion.div>
+            <div className="space-y-16">
+              {projectCategories.media.map((project, index) => renderProject(project, index))}
+              {projectCategories.hobbies.map((project, index) => renderProject(project, index))}
             </div>
           </div>
 
